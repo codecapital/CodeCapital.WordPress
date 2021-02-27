@@ -1,0 +1,48 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <Version>5.0.0</Version>
+    <Description>This library adds a few useful features for CodeCapital.WordPress library related with MVC and Razor pages.</Description>
+    <PackageTags>WordPress,aspnetcore</PackageTags>
+    <Authors>Vaclav Elias</Authors>
+    <Company>Code Capital</Company>
+    <PackageIcon>icon-512x512.png</PackageIcon>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <AssemblyVersion>$(Version)</AssemblyVersion>
+    <FileVersion>$(Version)</FileVersion>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/codecapital/CodeCapital.AspNetCore</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/codecapital/CodeCapital.AspNetCore</PackageProjectUrl>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CodeCapital.AspNetCore.Mvc.Renderer" Version="5.0.0" />
+    <PackageReference Include="CodeCapital.AspNetCore.Mvc.TagHelpers" Version="5.0.0" />
+    <PackageReference Include="CodeCapital.Services" Version="5.0.0" />
+  </ItemGroup>
+
+  <!--<ItemGroup>
+    <Folder Include="Persistence\" />
+    <Folder Include="ViewComponents\" />
+    <Folder Include="Views\Shared\Components\" />
+    <Folder Include="Views\Shared" />
+  </ItemGroup>-->
+
+  <ItemGroup>
+    <None Include="..\..\icon-512x512.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CodeCapital.WordPress\CodeCapital.WordPress.csproj" />
+  </ItemGroup>
+
+</Project>

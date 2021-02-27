@@ -1,0 +1,12 @@
+﻿@model CodeCapital.WordPress.Mvc.Models.ImageSlider
+@{
+    Layout = null;
+}
+<div asp-if="@Model.Images.Count > 0" class="gallery">
+    <div class="row my-gallery">
+        @foreach (var image in Model.Images)
+        {
+            <div class="col-6 col-xl-4" data-src="@image.Url" data-sub-html='<div class="fb-comments">@image.Description</div>'><div class="img-thumbnail"><div class="square-box"><img src="@image.Url" alt="@(image.Title ?? "")" /></div></div><div class="title">@image.Title</div></div>
+        }
+    </div>
+</div>

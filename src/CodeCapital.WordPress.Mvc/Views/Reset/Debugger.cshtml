@@ -1,0 +1,29 @@
+﻿@model CodeCapital.WordPress.Mvc.ViewModels.DebuggerViewModel
+@{
+    ViewData["Title"] = "WordPress Debugger";
+}
+<p>
+    Menus: @Model.Menus.Count, Posts: @Model.Posts.Count, Terms: @Model.Terms.Count
+</p>
+<h2>Cached Terms</h2>
+@foreach (var term in Model.Terms)
+{
+    <p>
+        @term.Id: @term.Name: @term.Slug
+    </p>
+}
+<h2>Cached Menus</h2>
+@foreach (var menu in Model.Menus)
+{
+    <h3>@menu.Key</h3>
+
+    foreach (var menuItem in menu.Value)
+    {
+        <p>@menuItem.MenuId, @menuItem.GetTitle(), @menuItem.GetUrl()</p>
+    }
+}
+<h2>Cached Posts</h2>
+@foreach (var post in Model.Posts)
+{
+    <p>@post.Key, @post.Value.Title</p>
+}

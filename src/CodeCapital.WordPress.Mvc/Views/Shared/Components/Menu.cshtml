@@ -1,0 +1,55 @@
+﻿@model CodeCapital.WordPress.Mvc.ViewModels.MenuViewModel
+<nav class="navbar navbar--toggler navbar-expand-lg navbar-light bg-dark fixed-top d-md-none">
+    <span class="navbar-text d-block d-lg-none action" data-toggle="collapse" data-target="#collapsingNavbar">Menu</span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</nav>
+<nav class="navbar navbar-custom navbar-expand-md bg-faded">
+    @*<span class="navbar-text d-block d-md-none">Menu</span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
+            <i class="fas fa-bars"></i>
+        </button>*@
+    <div class="navbar-collapse collapse w-100" id="collapsingNavbar">
+        <ul class="navbar-nav w-100 justify-content-center">
+            @foreach (var menu in Model.MenuItems.Where(w => w.ParentMenuId == 0))
+            {
+                /* you can remove data-toggle="dropdown" to make the hover link clickable as well */
+                var url = menu.GetUrl();
+                <li asp-if="Model.IsDropDown(menu.MenuId)" class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="@url" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        @menu.GetTitle()
+                    </a>
+                    <div class="dropdown-menu">
+                        @foreach (var submenu in Model.MenuItems.Where(w => w.ParentMenuId == menu.MenuId))
+                        {
+                            <a class="dropdown-item" @Model.AddTarget(submenu) href="@submenu.GetSubmenuUrl(url)">@submenu.GetTitle()</a>
+                        }
+                    </div>
+                </li>
+                <li asp-if="Model.IsDropDown(menu.MenuId)" negate class="nav-item@(Model.IsActive(menu) ? " active" : "")">
+                    <a class="nav-link" @Model.AddTarget(menu) href="@url">@menu.GetTitle()</a>
+                </li>
+            }
+            @*@foreach (var menu in Model.MenuItems.Where(w => w.ParentMenuId == 0))
+                {
+                    var url = menu.GetUrl();
+                    <li asp-if="Model.IsDropDown(menu.MenuId)" class="nav-item dropdown">
+                        <a class="nav-link" href="@url" role="button" aria-haspopup="true" aria-expanded="false">
+                            @menu.GetTitle()
+                            <i class="fal fa-angle-down"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            @foreach (var submenu in Model.MenuItems.Where(w => w.ParentMenuId == menu.MenuId))
+                            {
+                                <a class="nav-link" @Model.AddTarget(submenu) href="@url@submenu.GetUrl()">@submenu.GetTitle()</a>
+                            }
+                        </div>
+                    </li>
+                    <li asp-else="Model.IsDropDown(menu.MenuId)" class="nav-item@(Model.IsActive(menu) ? " active" : "")">
+                        <a class="nav-link" @Model.AddTarget(menu) href="@url">@menu.GetTitle()</a>
+                    </li>
+                }*@
+        </ul>
+    </div>
+</nav>
