@@ -18,8 +18,8 @@
     <AssemblyVersion>$(Version)</AssemblyVersion>
     <FileVersion>$(Version)</FileVersion>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <RepositoryUrl>https://github.com/codecapital/CodeCapital.AspNetCore</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/codecapital/CodeCapital.AspNetCore</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/codecapital/CodeCapital.WordPress</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/codecapital/CodeCapital.WordPress</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>
