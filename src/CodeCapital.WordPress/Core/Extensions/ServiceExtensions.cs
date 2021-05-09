@@ -23,12 +23,7 @@ namespace CodeCapital.WordPress.Core.Extensions
 
             services.AddDbContext<WordPressDbContext>(options =>
                 {
-                    options.UseMySql(configuration.GetConnectionString("WordPress"), mySqlOptions =>
-                    {
-                        //mySqlOptions.ServerVersion(new Version(10, 1, 38), ServerType.MariaDb);
-                        //mySqlOptions.AnsiCharSet(CharSet.Utf8mb4);
-                        //mySqlOptions.UnicodeCharSet(CharSet.Utf8mb4);
-                    });
+                    options.UseMySql(configuration.GetConnectionString("WordPress"), ServerVersion.AutoDetect(configuration.GetConnectionString("WordPress")));
                     options.EnableSensitiveDataLogging(enableSensitiveLogging);
                     options.EnableDetailedErrors(enableDetailedErrors);
                 }

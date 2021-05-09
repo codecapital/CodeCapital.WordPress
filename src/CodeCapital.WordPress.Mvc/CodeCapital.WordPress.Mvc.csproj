@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <Nullable>enable</Nullable>
-    <Version>5.0.0</Version>
+    <Version>5.0.4</Version>
     <Description>This library adds a few useful features for CodeCapital.WordPress library related with MVC and Razor pages.</Description>
     <PackageTags>WordPress,aspnetcore</PackageTags>
     <Authors>Vaclav Elias</Authors>
@@ -22,9 +22,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CodeCapital.AspNetCore.Mvc.Renderer" Version="5.0.0" />
-    <PackageReference Include="CodeCapital.AspNetCore.Mvc.TagHelpers" Version="5.0.0" />
-    <PackageReference Include="CodeCapital.Services" Version="5.0.0" />
+    <PackageReference Include="CodeCapital.AspNetCore.Mvc.Renderer" Version="5.0.4" />
+    <PackageReference Include="CodeCapital.AspNetCore.Mvc.TagHelpers" Version="5.0.4" />
+    <PackageReference Include="CodeCapital.Services" Version="5.0.4" />
   </ItemGroup>
 
   <!--<ItemGroup>
