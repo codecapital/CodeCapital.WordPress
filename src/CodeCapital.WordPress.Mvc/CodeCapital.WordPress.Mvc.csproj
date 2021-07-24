@@ -1,8 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
+    <Version>6.0.0</Version>
+    <PackageVersion>$(Version)-preview.6</PackageVersion>
     <Nullable>enable</Nullable>
-    <Version>5.0.4</Version>
     <Description>This library adds a few useful features for CodeCapital.WordPress library related with MVC and Razor pages.</Description>
     <PackageTags>WordPress,aspnetcore</PackageTags>
     <Authors>Vaclav Elias</Authors>
