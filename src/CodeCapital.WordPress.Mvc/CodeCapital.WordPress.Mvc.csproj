@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <Version>6.0.0</Version>
-    <PackageVersion>$(Version)-preview.6</PackageVersion>
+    <PackageVersion>$(Version)</PackageVersion>
     <Nullable>enable</Nullable>
     <Description>This library adds a few useful features for CodeCapital.WordPress library related with MVC and Razor pages.</Description>
     <PackageTags>WordPress,aspnetcore</PackageTags>
@@ -23,9 +23,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CodeCapital.AspNetCore.Mvc.Renderer" Version="6.0.0-preview.6" />
-    <PackageReference Include="CodeCapital.AspNetCore.Mvc.TagHelpers" Version="6.0.0-preview.6" />
-    <PackageReference Include="CodeCapital.Services" Version="6.0.0-preview.6" />
+    <PackageReference Include="CodeCapital.AspNetCore.Mvc.Renderer" Version="6.0.0" />
+    <PackageReference Include="CodeCapital.AspNetCore.Mvc.TagHelpers" Version="6.0.0" />
+    <PackageReference Include="CodeCapital.Services" Version="6.0.0" />
   </ItemGroup>
 
   <!--<ItemGroup>
