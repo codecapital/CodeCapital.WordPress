@@ -1,6 +1,7 @@
-﻿using CodeCapital.WordPress.Core;
+using CodeCapital.WordPress.Core;
 using CodeCapital.WordPress.Core.Models;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace CodeCapital.WordPress.Services
@@ -11,6 +12,7 @@ namespace CodeCapital.WordPress.Services
         //Task<Post> GetPublishedAsync(string url);
         Task<PaginatedList> GetAsync();
         Task<PaginatedList> GetAsync(SearchQuery searchQuery);
+        Task<PaginatedList> GetAsync(IQueryable<Post> query, SearchQuery searchQuery);
 
         /// <summary>
         /// Use this if you are accessing PaginatedList Posts HtmlContent directly. When you are accessing 

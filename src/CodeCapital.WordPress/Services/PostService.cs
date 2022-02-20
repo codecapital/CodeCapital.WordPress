@@ -1,4 +1,4 @@
-﻿using CodeCapital.WordPress.Core;
+using CodeCapital.WordPress.Core;
 using CodeCapital.WordPress.Core.Extensions;
 using CodeCapital.WordPress.Core.Models;
 using CodeCapital.WordPress.Core.Repositories;
@@ -35,13 +35,20 @@ namespace CodeCapital.WordPress.Services
 
         public Task<PaginatedList> GetAsync() => GetAsync(new SearchQuery());
 
+        public async Task<PaginatedList> GetAsync(IQueryable<Post> query, SearchQuery searchQuery)
+        {
+            var paginatedList = await _postRepository.GetAsync(query, searchQuery);
+
+            await AddAditionalEntities(paginatedList);
+
+            return paginatedList;
+        }
+
         public async Task<PaginatedList> GetAsync(SearchQuery searchQuery)
         {
             var paginatedList = await _postRepository.GetPublishedAsync(searchQuery);
 
-            await paginatedList.Items.AddTermsAsync(_termService);
-            await paginatedList.Items.AddMetadataAsync(_metadataService);
-            await paginatedList.Items.AddPostProcessingAsync(_postProcessingService.ProcessAsync);
+            await AddAditionalEntities(paginatedList);
 
             return paginatedList;
         }
@@ -109,6 +116,13 @@ namespace CodeCapital.WordPress.Services
             await post.AddPostProcessingAsync(_postProcessingService.ProcessAsync);
 
             //post.PostMeta = await _metadataService.GetAsync(post.Id);
+        }
+
+        private async Task AddAditionalEntities(PaginatedList paginatedList)
+        {
+            await paginatedList.Items.AddTermsAsync(_termService);
+            await paginatedList.Items.AddMetadataAsync(_metadataService);
+            await paginatedList.Items.AddPostProcessingAsync(_postProcessingService.ProcessAsync);
         }
 
         //protected async Task ApplyShortCode(Post post) =>
