@@ -27,13 +27,13 @@ jobs:
       run: dotnet test --no-build --verbosity normal
 
     - name: Publish CodeCapitalWordPress 
-      uses: brandedoutcast/publish-nuget@v2.5.5
+      uses: alirezanet/publish-nuget@v3.0.1
       with:   
         PROJECT_FILE_PATH: src/CodeCapital.WordPress/CodeCapital.WordPress.csproj  
         NUGET_KEY: ${{secrets.NUGET_API_KEY}}
     
     - name: Publish CodeCapitalWordPressMvc
-      uses: brandedoutcast/publish-nuget@v2.5.5
+      uses: alirezanet/publish-nuget@v3.0.1
       with:   
         PROJECT_FILE_PATH: src/CodeCapital.WordPress.Mvc/CodeCapital.WordPress.Mvc.csproj  
         NUGET_KEY: ${{secrets.NUGET_API_KEY}}    
