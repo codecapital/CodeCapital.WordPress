@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <Nullable>enable</Nullable>
-    <Version>5.0.4</Version>
+    <Version>5.0.5</Version>
     <Description>This library is used to access WordPress MySQL database with many helpful functions. Targeting .NET 5</Description>
     <PackageTags>WordPress,aspnetcore</PackageTags>
     <Authors>Vaclav Elias</Authors>
