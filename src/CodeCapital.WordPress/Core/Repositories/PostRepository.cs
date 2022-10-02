@@ -86,7 +86,7 @@ namespace CodeCapital.WordPress.Core.Repositories
 
         }
 
-        protected virtual async Task<PaginatedList> GetAsync(IQueryable<Post> query, SearchQuery searchQuery)
+        public virtual async Task<PaginatedList> GetAsync(IQueryable<Post> query, SearchQuery searchQuery)
         {
 
             // Maybe there is a better way of doing this
