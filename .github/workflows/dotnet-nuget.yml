@@ -17,7 +17,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 6.0.x
+        dotnet-version: 7.0.x
         include-prerelease: true
     - name: Restore dependencies
       run: dotnet restore
@@ -26,14 +26,14 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
 
-    - name: Publish CodeCapitalWordPress 
+    - name: Publish CodeCapitalWordPress
       uses: alirezanet/publish-nuget@v3.0.1
-      with:   
-        PROJECT_FILE_PATH: src/CodeCapital.WordPress/CodeCapital.WordPress.csproj  
+      with:
+        PROJECT_FILE_PATH: src/CodeCapital.WordPress/CodeCapital.WordPress.csproj
         NUGET_KEY: ${{secrets.NUGET_API_KEY}}
-    
+
     - name: Publish CodeCapitalWordPressMvc
       uses: alirezanet/publish-nuget@v3.0.1
-      with:   
-        PROJECT_FILE_PATH: src/CodeCapital.WordPress.Mvc/CodeCapital.WordPress.Mvc.csproj  
-        NUGET_KEY: ${{secrets.NUGET_API_KEY}}    
+      with:
+        PROJECT_FILE_PATH: src/CodeCapital.WordPress.Mvc/CodeCapital.WordPress.Mvc.csproj
+        NUGET_KEY: ${{secrets.NUGET_API_KEY}}
