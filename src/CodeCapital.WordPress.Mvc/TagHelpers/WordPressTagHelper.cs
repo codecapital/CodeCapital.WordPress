@@ -1,39 +1,39 @@
-﻿using CodeCapital.WordPress.Core.Models;
+using CodeCapital.WordPress.Core.Models;
 using CodeCapital.WordPress.Services;
+using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using System.Threading.Tasks;
 
-namespace CodeCapital.WordPress.Mvc.TagHelpers
+namespace CodeCapital.WordPress.Mvc.TagHelpers;
+
+[HtmlTargetElement("wordpress")]
+public class WordPressTagHelper : TagHelper
 {
-    [HtmlTargetElement("wordpress")]
-    public class WordPressTagHelper : TagHelper
+    private readonly IPostService _postService;
+    public string Url { get; set; } = string.Empty;
+
+    public WordPressTagHelper(IPostService postService) => _postService = postService;
+
+    public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
     {
-        private readonly IPostService _postService;
-        public string Url { get; set; } = string.Empty;
+        output.TagName = "";
 
-        public WordPressTagHelper(IPostService postService) => _postService = postService;
-
-        public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
+        if (string.IsNullOrWhiteSpace(Url))
         {
-            output.TagName = "";
-
-            if (string.IsNullOrWhiteSpace(Url))
-            {
-                EmptyContent();
-                return;
-            }
-
-            var post = await _postService.GetAsync(Url);
-
-            if (post == NullPost.Instance)
-            {
-                EmptyContent();
-                return;
-            }
-
-            output.Content.SetHtmlContent(post.HtmlContent);
-
-            void EmptyContent() => output.Content.SetHtmlContent(string.Empty);
+            EmptyContent();
+            return;
         }
+
+        var post = await _postService.GetAsync(Url);
+
+        if (post == NullPost.Instance)
+        {
+            EmptyContent();
+            return;
+        }
+
+        output.Content.SetHtmlContent(new HtmlString(post.HtmlContent));
+
+        void EmptyContent() => output.Content.SetHtmlContent(string.Empty);
     }
 }

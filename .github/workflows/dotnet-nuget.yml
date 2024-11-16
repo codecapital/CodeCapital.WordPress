@@ -13,11 +13,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: Setup .NET
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 7.0.x
+        dotnet-version: 8.0.x
         include-prerelease: true
     - name: Restore dependencies
       run: dotnet restore
@@ -27,13 +27,13 @@ jobs:
       run: dotnet test --no-build --verbosity normal
 
     - name: Publish CodeCapitalWordPress
-      uses: alirezanet/publish-nuget@v3.0.1
+      uses: alirezanet/publish-nuget@v3.1.0
       with:
         PROJECT_FILE_PATH: src/CodeCapital.WordPress/CodeCapital.WordPress.csproj
         NUGET_KEY: ${{secrets.NUGET_API_KEY}}
 
     - name: Publish CodeCapitalWordPressMvc
-      uses: alirezanet/publish-nuget@v3.0.1
+      uses: alirezanet/publish-nuget@v3.1.0
       with:
         PROJECT_FILE_PATH: src/CodeCapital.WordPress.Mvc/CodeCapital.WordPress.Mvc.csproj
         NUGET_KEY: ${{secrets.NUGET_API_KEY}}
