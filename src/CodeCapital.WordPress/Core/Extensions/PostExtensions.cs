@@ -70,7 +70,7 @@ public static class PostExtensions
 
         //foreach (var post in posts)
         //{
-        //    await post.AddPostProcessingAsync(postProcessingService.ProcessAsync);
+        //    await post.AddPostProcessingAsync(processAsync);
         //}
     }
 
