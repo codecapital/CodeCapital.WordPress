@@ -23,9 +23,9 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="CodeCapital.AspNetCore.Mvc.Renderer" Version="9.0.0" />
-        <PackageReference Include="CodeCapital.AspNetCore.Mvc.TagHelpers" Version="9.0.0" />
-        <PackageReference Include="CodeCapital.Services" Version="9.0.0" />
+        <PackageReference Include="CodeCapital.AspNetCore.Mvc.Renderer" Version="10.0.0.1" />
+        <PackageReference Include="CodeCapital.AspNetCore.Mvc.TagHelpers" Version="10.0.0.1" />
+        <PackageReference Include="CodeCapital.Services" Version="10.0.0.1" />
     </ItemGroup>
 
     <ItemGroup>
